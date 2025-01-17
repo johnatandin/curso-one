@@ -5,22 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorteador de Amigo Secreto</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+         /* Corpo da página */
+         body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e1e2f, #2a2a3e);
+            color: #fff;
+            margin: 0;
+            padding: 20px;
             text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #00d4ff;
+            text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
+            margin-bottom: 20px;
+        }
+
         input, button {
-            margin: 10px 0;
+            font-size: 1rem;
             padding: 10px;
-            font-size: 16px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            transition: all 0.3s ease;
         }
+
+        input {
+            width: 250px;
+            background: #1e1e2f;
+            color: #fff;
+            border: 2px solid #00d4ff;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        input::placeholder {
+            color: #aaa;
+        }
+
+        button {
+            background: linear-gradient(135deg, #00d4ff, #0072ff);
+            color: #fff;
+            cursor: pointer;
+            border: 2px solid #0072ff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px #00d4ff;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #0072ff, #00d4ff);
+            box-shadow: 0 0 25px #00d4ff, 0 0 35px #0072ff;
+        }
+
         ul {
-            list-style-type: none;
+            list-style: none;
             padding: 0;
+            margin-top: 20px;
+            color: #00d4ff;
         }
+
         li {
             margin: 5px 0;
+            padding: 10px;
+            background: #2a2a3e;
+            border: 1px solid #0072ff;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        #resultadoSorteio {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #00ff99;
+            text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99;
         }
     </style>
 </head>
