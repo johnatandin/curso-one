@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteador de Amigo Secreto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sorteador de Amigo Secreto</h1>
+    <input type="text" id="nome" placeholder="Digite o nome">
+    <button onclick="adicionarNome()">Adicionar Nome</button>
+    <button onclick="sortear()">Sortear</button>
+    <button onclick="limparLista()">Limpar Lista</button>
+    <h2>Lista de Participantes</h2>
+    <ul id="listaNomes"></ul>
+    <h2>Resultado do Sorteio</h2>
+    <p id="resultadoSorteio"></p>
+
+    <script>
+        const nomes = [];
+
+        function adicionarNome() {
+            const input = document.getElementById('nome');
+            const nome = input.value.trim();
+
+            if (nome === "") {
+                alert("Por favor, digite um nome!");
+                return;
+            }
+
+            nomes.push(nome);
+            input.value = ""; // Limpa o campo de entrada
+            atualizarLista();
+        }
+
+        function atualizarLista() {
+            const lista = document.getElementById('listaNomes');
+            lista.innerHTML = ""; // Limpa a lista antes de atualizar
+
+            nomes.forEach((nome) => {
+                const item = document.createElement('li');
+                item.textContent = nome;
+                lista.appendChild(item);
+            });
+        }
+
+        function sortear() {
+            if (nomes.length === 0) {
+                alert("A lista está vazia. Adicione nomes antes de sortear.");
+                return;
+            }
+
+            const indiceAleatorio = Math.floor(Math.random() * nomes.length); // Seleciona um índice aleatório
+            const nomeSorteado = nomes[indiceAleatorio];
+
+            const resultado = document.getElementById('resultadoSorteio');
+            resultado.textContent = `O nome sorteado é: ${nomeSorteado}`;
+        }
+
+        function limparLista() {
+            nomes.length = 0; // Esvazia o array de nomes
+            document.getElementById('listaNomes').innerHTML = ""; // Limpa a lista exibida
+            document.getElementById('resultadoSorteio').textContent = ""; // Limpa o resultado do sorteio
+            alert("A lista foi limpa com sucesso!");
+        }
+    </script>
+</body>
+</html>
